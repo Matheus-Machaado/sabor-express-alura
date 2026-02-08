@@ -2,105 +2,88 @@
 <html lang="pt-BR">
 <head>
 	<meta charset="UTF-8">
-	<title>📘 Projeto Sabor Express</title>
 </head>
 <body>
-
 	<h1>🍽️ Projeto Sabor Express</h1>
-
 	<p>
 		Este repositório foi criado com o objetivo de
-		<strong>praticar Programação Orientada a Objetos (POO) em Python</strong>,
-		utilizando um exemplo simples e realista de um sistema de cadastro de restaurantes.
+		<strong>estudar e praticar Programação Orientada a Objetos (POO) em Python</strong>,
+		utilizando um exemplo simples de um sistema de cadastro e controle de restaurantes.
 	</p>
-
 	<p>
-		O projeto trabalha conceitos fundamentais como <strong>classes</strong>,
-		<strong>atributos</strong>, <strong>métodos especiais</strong> e
-		<strong>instanciação de objetos</strong>.
+		O projeto trabalha conceitos como <strong>classes</strong>, <strong>atributos</strong>,
+		<strong>métodos especiais</strong> e <strong>instanciação de objetos</strong>.
 	</p>
-
 	<hr>
-
-	<h2>🚀 Conceitos Abordados</h2>
-
-	<h3>🔹 Estrutura de Classes</h3>
+	<h2>🚀 Conteúdos Estudados</h2>
+	<h3>🔹 Estrutura de Classe</h3>
 	<ul>
-		<li>Criação de classes em Python</li>
-		<li>Uso do método construtor <strong>__init__</strong></li>
-		<li>Definição de atributos de instância</li>
+		<li><strong>class Restaurante</strong> – Criação de uma classe em Python</li>
+		<li><strong>self</strong> – Referência ao próprio objeto</li>
+		<li><strong>atributos</strong> – Armazenamento de dados do restaurante (nome, categoria, ativo)</li>
 	</ul>
-
-	<h3>🔹 Programação Orientada a Objetos</h3>
+	<h3>🔹 Construtor e Inicialização</h3>
 	<ul>
-		<li>Instanciação de objetos</li>
-		<li>Encapsulamento de dados</li>
-		<li>Estados do objeto (ativo / inativo)</li>
+		<li><strong>__init__</strong> – Inicializa os atributos quando o objeto é criado</li>
+		<li><strong>__int__</strong> – Não é construtor (é outro método especial; usar aqui causa erro)</li>
 	</ul>
-
-	<h3>🔹 Métodos Especiais</h3>
+	<h3>🔹 Instanciação de Objetos</h3>
 	<ul>
-		<li><strong>__init__</strong> – Inicializa os atributos da classe</li>
-		<li><strong>__str__</strong> (opcional) – Permite exibir informações do objeto de forma amigável</li>
+		<li><strong>Restaurante("Praça", "Gourmet")</strong> – Cria um objeto com nome e categoria</li>
+		<li><strong>self.ativo = False</strong> – Define estado inicial do restaurante</li>
 	</ul>
-
+	<h3>🔹 Saída no Terminal (print)</h3>
+	<ul>
+		<li><strong>print(objeto)</strong> – Sem <strong>__str__</strong>, mostra o endereço do objeto na memória</li>
+		<li><strong>__str__</strong> – Permite exibir o restaurante com informações legíveis</li>
+	</ul>
 	<hr>
-
-	<h2>📂 Estrutura Básica do Projeto</h2>
-
-	<pre>
-sabor-express/
-│
-├── restaurante.py
-├── main.py
-└── README.html
-	</pre>
-
-	<p>
-		O arquivo principal contém a definição da classe <strong>Restaurante</strong>,
-		onde são definidos os atributos e o comportamento do objeto.
-	</p>
-
-	<hr>
-
-	<h2>🧪 Exemplo de Código</h2>
-
+	<h2>💡 Dicas Importantes</h2>
+	<h3>🔹 Erro comum: usar __int__ ao invés de __init__</h3>
+	<p>O construtor correto é <strong>__init__</strong>. Se você escrever <strong>__int__</strong>, a classe não recebe os parâmetros.</p>
+	<p>Exemplo correto:</p>
 	<pre>
 class Restaurante:
 	def __init__(self, nome, categoria):
 		self.nome = nome
 		self.categoria = categoria
 		self.ativo = False
-
-restaurante_praca = Restaurante("Praça", "Gourmet")
-restaurante_pizza = Restaurante("Pizza Express", "Italiano")
 	</pre>
-
-	<hr>
-
-	<h2>💡 Aprendizados Importantes</h2>
-
-	<ul>
-		<li>O método construtor deve se chamar <strong>__init__</strong>, não <strong>__int__</strong></li>
-		<li>Cada objeto criado possui seus próprios valores de atributos</li>
-		<li>O <strong>print(objeto)</strong> pode ser personalizado com <strong>__str__</strong></li>
-	</ul>
-
-	<hr>
-
-	<h2>📚 Objetivo do Repositório</h2>
-
-	<ul>
-		<li>Fixar conceitos básicos de POO em Python</li>
-		<li>Servir como material de estudo e consulta</li>
-		<li>Preparar base para projetos maiores</li>
-	</ul>
-
+	<h3>🔹 Melhorando o print com __str__</h3>
 	<p>
-		Este projeto faz parte do processo de aprendizado em Python
-		e pode ser evoluído futuramente com listas, menus interativos,
-		persistência de dados e muito mais.
+		Para evitar que o <strong>print(restaurante)</strong> mostre algo como
+		<em>&lt;__main__.Restaurante object at 0x...&gt;</em>, implemente <strong>__str__</strong>.
 	</p>
+	<pre>
+class Restaurante:
+	def __init__(self, nome, categoria):
+		self.nome = nome
+		self.categoria = categoria
+		self.ativo = False
+	def __str__(self):
+		status = "Ativo" if self.ativo else "Inativo"
+		return f"{self.nome} | {self.categoria} | {status}"
+	</pre>
+	<hr>
+	<h2>▶️ Como executar o projeto</h2>
+	<p>Execute o arquivo principal com Python:</p>
+	<pre>
+python main.py
+	</pre>
+	<p>
+		Se seu arquivo tiver outro nome (ex: <strong>app.py</strong>), troque no comando:
+	</p>
+	<pre>
+python app.py
+	</pre>
+	<hr>
+	<h2>📚 Objetivo do Repositório</h2>
+	<ul>
+		<li>Fixar os conceitos básicos e intermediários de POO em Python</li>
+		<li>Praticar criação de classes e objetos com um exemplo realista</li>
+		<li>Servir como material de consulta rápida durante os estudos</li>
+	</ul>
+	<hr>
 
 </body>
 </html>
