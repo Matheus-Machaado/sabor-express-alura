@@ -25,7 +25,6 @@
 	<h3>🔹 Construtor e Inicialização</h3>
 	<ul>
 		<li><strong>__init__</strong> – Inicializa os atributos quando o objeto é criado</li>
-		<li><strong>__int__</strong> – Não é construtor (é outro método especial; usar aqui causa erro)</li>
 	</ul>
 	<h3>🔹 Instanciação de Objetos</h3>
 	<ul>
@@ -39,16 +38,6 @@
 	</ul>
 	<hr>
 	<h2>💡 Dicas Importantes</h2>
-	<h3>🔹 Erro comum: usar __int__ ao invés de __init__</h3>
-	<p>O construtor correto é <strong>__init__</strong>. Se você escrever <strong>__int__</strong>, a classe não recebe os parâmetros.</p>
-	<p>Exemplo correto:</p>
-	<pre>
-class Restaurante:
-	def __init__(self, nome, categoria):
-		self.nome = nome
-		self.categoria = categoria
-		self.ativo = False
-	</pre>
 	<h3>🔹 Melhorando o print com __str__</h3>
 	<p>
 		Para evitar que o <strong>print(restaurante)</strong> mostre algo como
